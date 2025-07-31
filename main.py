@@ -1,6 +1,13 @@
 from fastapi import FastAPI
-from entrenamientos import router as entrenamientos_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-app.include_router(entrenamientos_router)
+# 👇 Permitir acceso desde Angular en local
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],  # o ["*"] para todos los orígenes
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
