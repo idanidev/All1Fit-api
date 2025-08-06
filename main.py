@@ -4,14 +4,20 @@ from entrenamientos import router
 
 app = FastAPI()
 
-# Configuración CORS para permitir acceso desde tu frontend Angular
+# CORS como antes
+origins = [
+    "http://localhost:4200",
+    "https://app.all1fit.com",
+    "https://www.app.all1fit.com"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Incluir rutas desde el router
-app.include_router(router)
+# Prefijo /api para todas las rutas del router
+app.include_router(router, prefix="/api")
