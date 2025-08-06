@@ -20,4 +20,4 @@ app.add_middleware(
 )
 
 # Prefijo /api para todas las rutas del router
-app.include_router(router, prefix="/api")
+app.include_router(router)
