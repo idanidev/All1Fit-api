@@ -9,6 +9,7 @@ router = APIRouter(
 )
 
 
+@router.get("")
 @router.get("/", response_model=list[EntrenamientoDB])
 async def listar_entrenamientos():
     entrenamientos = []
