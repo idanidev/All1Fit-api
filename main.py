@@ -15,7 +15,9 @@ app.add_middleware(
     allow_origins=[
         "https://all1fit.com",
         "https://www.all1fit.com",
+        "http://localhost:4200",
     ],
+    allow_origin_regex=r"https://.*\\.all1fit\\.com",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
